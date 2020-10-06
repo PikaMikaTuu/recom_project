@@ -1,0 +1,111 @@
+{% extends "recom/layout.html" %}
+{% load static %}
+
+{% block title %} Recom Sys {% endblock %}
+
+{% block content %}
+<div class="w3-container w3-green">
+    <h1>Recommender Application</h1>
+</div>
+
+{% if not products %}
+<div class="w3-panel w3-border w3-border-pink">
+    <div class="main">
+        <h2>Products</h2>
+        <div class="row">
+
+          <div class="column nature">
+            <div class="content">
+              <img src="https://images-na.ssl-images-amazon.com/images/I/510j6eoQ9wL.jpg" width="300" height="290"/>
+              <h4><a href="/p/68" style="color:black">Vertical Smart Phone Case</a></h4>
+            </div>
+          </div>
+
+          <div class="column nature">
+            <div class="content">
+              <img src="https://www.windowscentral.com/sites/wpcentral.com/files/styles/w830/public/resource_images/_store_images_product_images_accessories_large_1149.jpg" width="300" height="290"/>
+              <h4><a href="/p/120" style="color:black">S805 Bluetooth Stereo</a></h4>
+            </div>
+          </div>
+
+          <div class="column nature">
+            <div class="content">
+              <img src="{% static 'images/broom.jpg' %}" width="300" height="290"/>
+              <h4><a href="#" style="color:black">placeholder_image</a></h4>
+            </div>
+          </div>
+
+          <div class="column nature">
+            <div class="content">
+              <img src="http://www.chineseantiques.co.uk/wp-content/uploads/2012/11/tennants-yongzheng-vase.jpg" width="300" height="290"/>
+              <h4><a href="#" style="color:black">vase</a></h4>
+            </div>
+          </div>
+
+          <div class="column nature">
+            <div class="content">
+              <img src="http://thewowstyle.com/wp-content/uploads/2015/03/canvas-art-idea.jpg" width="300" height="290"/>
+              <h4><a href="#" style="color:black">canvas painting </a></h4>
+            </div>
+          </div>
+
+          <div class="column nature">
+            <div class="content">
+              <img src="https://homeownerfaqs.com/wp-content/uploads/2017/10/ductless-ac-unit.jpg" width="300" height="290"/>
+              <h4><a href="#" style="color:black">split ac</a></h4>
+            </div>
+          </div>
+
+          <div class="column nature">
+            <div class="content">
+              <img src="
+https://images.samsung.com/is/image/samsung/ph-mobile-devices-galaxy-tab-a-with-s-pen-001?$ORIGIN_PNG$" width="300" height="290"/>
+              <h4><a href="#" style="color:black">tablet</a></h4>
+            </div>
+          </div>
+
+          <div class="column nature">
+            <div class="content">
+              <img src="
+https://images.homedepot-static.com/productImages/69fb3554-a495-4245-9a22-fe7cbec48ed9/svn/quickie-string-mops-036mrm-20-64_1000.jpg" width="300" height="290"/>
+              <h4><a href="#" style="color:black">mop</a></h4>
+            </div>
+          </div>
+
+          <div class="column nature">
+            <div class="content">
+              <img src="https://cdn2.macworld.co.uk/cmsdata/slideshow/3512394/huawei_watch_2.jpg" width="300" height="290"/>
+              <h4><a href="#" style="color:black">watch</a></h4>
+            </div>
+          </div>
+
+          <div class="column nature">
+            <div class="content">
+              <img src="https://www.lovedazzle.com/DoMedia/images/s/aquamarine_bead_teardrop_bracelet.jpg" width="300" height="290"/>
+              <h4><a href="#" style="color:black">bracelet</a></h4>
+            </div>
+          </div>
+
+        </div>
+    </div>
+</div>
+
+{% else %}
+<div class="w3-panel w3-border w3-border-pink">
+    <div class="main">
+        <h2>Products</h2>
+        <div class="row">
+        {% for product in products %}
+          <div class="column nature">
+            <div class="content">
+              <img src="{{ product.url }}" width="300" height="290"/>
+              <h4><a href="#" style="color:black">{{ product.name }}</a></h4>
+            </div>
+          </div>        
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
