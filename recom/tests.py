@@ -23,3 +23,7 @@ def predict(product_id):
 
 # predict(200) # zBoost YX-510 Cell Phone Signal Booster
 # predict(122) #  Motorola V197 Unlocked Phone with Quad-Band GSM and Bluetooth-International Version
+predict(164)
+predict(165)
+predict(166)
+predict(167)

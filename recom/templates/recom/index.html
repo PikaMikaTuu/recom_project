@@ -5,10 +5,35 @@
 
 {% block content %}
 <div class="w3-container w3-green">
-    <h1>Recommender Application</h1>
+    <a href="{% url 'index' %}"><h1>Recommender Application</h1></a>
 </div>
 
-{% if not products %}
+{% if products %}
+<div class="w3-panel w3-border w3-border-pink">
+    <div class="main">
+        <h2>Products</h2>
+        <div class="row">
+        {% for product in products %}
+          <div class="column nature">
+            <div class="content">
+              <img src="{{ product.url }}" width="300" height="290"/>
+              <h4><a href="{% url 'predict' product.pid %}" style="color:black">{{ product.name }}</a></h4>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% elif product_names %}
+<ul>
+  <h4>Recommendations for: <span style="color: red">{{ main_name }}</span></h4>
+  {% for name in product_names %}
+    <li>{{ name }}</li>
+  {% endfor %}
+</ul>
+
+{% else %}
 <div class="w3-panel w3-border w3-border-pink">
     <div class="main">
         <h2>Products</h2>
@@ -30,29 +55,22 @@
 
           <div class="column nature">
             <div class="content">
-              <img src="{% static 'images/broom.jpg' %}" width="300" height="290"/>
-              <h4><a href="#" style="color:black">placeholder_image</a></h4>
-            </div>
-          </div>
-
-          <div class="column nature">
-            <div class="content">
-              <img src="http://www.chineseantiques.co.uk/wp-content/uploads/2012/11/tennants-yongzheng-vase.jpg" width="300" height="290"/>
-              <h4><a href="#" style="color:black">vase</a></h4>
+              <img src="https://images-na.ssl-images-amazon.com/images/I/51fbOZOxqNL._AC_.jpg" width="300" height="290"/>
+              <h4><a href="/p/64" style="color:black">Garmin-Portable GPS Navigator</a></h4>
             </div>
           </div>
 
           <div class="column nature">
             <div class="content">
               <img src="http://thewowstyle.com/wp-content/uploads/2015/03/canvas-art-idea.jpg" width="300" height="290"/>
-              <h4><a href="#" style="color:black">canvas painting </a></h4>
+              <h4><a href="javascript:void(0)" style="color:black">canvas painting</a></h4>
             </div>
           </div>
 
           <div class="column nature">
             <div class="content">
               <img src="https://homeownerfaqs.com/wp-content/uploads/2017/10/ductless-ac-unit.jpg" width="300" height="290"/>
-              <h4><a href="#" style="color:black">split ac</a></h4>
+              <h4><a href="javascript:void(0)" style="color:black">split ac</a></h4>
             </div>
           </div>
 
@@ -60,7 +78,7 @@
             <div class="content">
               <img src="
 https://images.samsung.com/is/image/samsung/ph-mobile-devices-galaxy-tab-a-with-s-pen-001?$ORIGIN_PNG$" width="300" height="290"/>
-              <h4><a href="#" style="color:black">tablet</a></h4>
+              <h4><a href="javascript:void(0)" style="color:black">tablet</a></h4>
             </div>
           </div>
 
@@ -68,44 +86,26 @@ https://images.samsung.com/is/image/samsung/ph-mobile-devices-galaxy-tab-a-with-
             <div class="content">
               <img src="
 https://images.homedepot-static.com/productImages/69fb3554-a495-4245-9a22-fe7cbec48ed9/svn/quickie-string-mops-036mrm-20-64_1000.jpg" width="300" height="290"/>
-              <h4><a href="#" style="color:black">mop</a></h4>
+              <h4><a href="javascript:void(0)" style="color:black">mop</a></h4>
             </div>
           </div>
 
           <div class="column nature">
             <div class="content">
               <img src="https://cdn2.macworld.co.uk/cmsdata/slideshow/3512394/huawei_watch_2.jpg" width="300" height="290"/>
-              <h4><a href="#" style="color:black">watch</a></h4>
+              <h4><a href="javascript:void(0)" style="color:black">watch</a></h4>
             </div>
           </div>
 
           <div class="column nature">
             <div class="content">
               <img src="https://www.lovedazzle.com/DoMedia/images/s/aquamarine_bead_teardrop_bracelet.jpg" width="300" height="290"/>
-              <h4><a href="#" style="color:black">bracelet</a></h4>
+              <h4><a href="javascript:void(0)" style="color:black">bracelet</a></h4>
             </div>
           </div>
 
         </div>
     </div>
 </div>
-
-{% else %}
-<div class="w3-panel w3-border w3-border-pink">
-    <div class="main">
-        <h2>Products</h2>
-        <div class="row">
-        {% for product in products %}
-          <div class="column nature">
-            <div class="content">
-              <img src="{{ product.url }}" width="300" height="290"/>
-              <h4><a href="#" style="color:black">{{ product.name }}</a></h4>
-            </div>
-          </div>        
-        {% endfor %}
-        </div>
-    </div>
-</div>
 {% endif %}
-
 {% endblock %}
